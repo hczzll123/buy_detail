@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * <p>
  *  前端控制器
@@ -32,6 +34,11 @@ public class TAdminController {
         TAdmin tAdmin = new TAdmin();
         tAdmin.setLoginAcct("hcz").setUserPswd("Aa888888").setUserName("何昌政").setEmail("hcz@qq.com").setCreateTime("20200414");
         tAdminService.save(tAdmin);
+        TAdmin admin = tAdminService.getById(1);
+        System.out.println(admin);
+        List<TAdmin> list = tAdminService.list(null);
+
+
 
         return "成功";
     }
