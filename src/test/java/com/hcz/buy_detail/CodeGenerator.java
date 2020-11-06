@@ -25,7 +25,7 @@ public class CodeGenerator {
         GlobalConfig globalConfig = new GlobalConfig();
         //String projectPath = System.getProperty("user.dir");
         //globalConfig.setOutputDir(projectPath + "/src/main/java");
-        globalConfig.setOutputDir("D:/ApllicationIdea/buy_detail/src/main/java");
+        globalConfig.setOutputDir("D:/tools/buy_detail/src/main/java");
         globalConfig.setAuthor("hechangzheng");
         //生成后是否打开资源管理器
         globalConfig.setOpen(false);
@@ -44,10 +44,10 @@ public class CodeGenerator {
 
         // 3、数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/work?serverTimezone=GMT%2B8");
+        dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/car_sale?serverTimezone=GMT%2B8");
         dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
         dataSourceConfig.setUsername("root");
-        dataSourceConfig.setPassword("abc123");
+        dataSourceConfig.setPassword("Aa888888");
         dataSourceConfig.setDbType(DbType.MYSQL);
         autoGenerator.setDataSource(dataSourceConfig);
 
@@ -63,7 +63,7 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("buydetails");
+        strategy.setInclude("t_admin");
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(packageConfig.getModuleName() + "_"); //生成实体时去掉表前缀
 

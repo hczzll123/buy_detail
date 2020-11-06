@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -51,6 +52,13 @@ public class DataShowController {
         map.put("daystatuses",daystatuses);
 
         return "status";
+    }
+
+    //
+    @RequestMapping("/list")
+    @ResponseBody
+    public String shouState(ModelMap map){
+        return "hello";
     }
 
     //该方法用于搜索和分页的功能

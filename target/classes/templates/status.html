@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base th:href="@{/}"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+    <script src="/bootstrap/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        日期
+                    </th>
+                    <th>
+                        状态
+                    </th>
+                    <th>
+                        操作
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="info" th:each="daystatu : ${daystatuses}">
+                    <td th:text="${daystatu.date}">
+                        2020-06-08
+                    </td>
+                    <td th:text="${daystatu.status}">
+                        已解析
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-default jiexi">解析</button>
+                        <button type="button" class="btn btn-default item">详情数据</button>
+                    </td>
+
+                    <form action="/daystatus/analysis" id="tojiexi" method="post">
+                        <input type="hidden" name="soueseFile" th:value="${daystatu.date}" />
+
+                    </form>
+
+                    <form action="/show/data" id="cart" method="post">
+                        <input type="hidden" name="name" th:value="${daystatu.date}" />
+
+
+                    </form>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(".item").click(function () {
+
+        $("#cart").submit();
+
+    });
+
+    $(".jiexi").click(function () {
+
+        $("#tojiexi").submit();
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

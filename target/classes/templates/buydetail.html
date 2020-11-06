@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base th:href="@{/}"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <script src="bootstrap/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="bootstrap/css/pagination.css" />
+    <script type="text/javascript" src="jquery/jquery.pagination.js"></script>
+    <title>Title</title>
+
+    <style>
+
+        .pagination{
+            margin-left: 37%;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+
+        <input type="hidden" id="total" th:value="${page.total}"/>
+        <input type="hidden" id="current" th:value="${page.current}"/>
+        <input type="hidden" id="keyword" th:value="${keyword}"/>
+        <input type="hidden" id="dayname" th:value="${dayname}"/>
+
+
+        <form action="show/data" method="post" class="form-inline" role="form" style="float: left;">
+            <div class="form-group has-feedback">
+                <input type="hidden" name="name" th:value="${dayname}" value="222" />
+                <div class="input-group">
+                    <div class="input-group-addon">查询条件</div>
+                    <input name="keyword" class="form-control has-success" type="text"
+                           placeholder="请输入卡号查询">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning">
+                <i class="glyphicon glyphicon-search"></i> 查询
+            </button>
+        </form>
+
+        <div class="col-md-12 column">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        终端号
+                    </th>
+                    <th>
+                        发卡行
+                    </th>
+                    <th>
+                        卡种
+                    </th>
+                    <th>
+                        卡号
+                    </th>
+                    <th>
+                        交易日期
+                    </th>
+                    <th>
+                        交易时间
+                    </th>
+                    <th>
+                        交易类型
+                    </th>
+                    <th>
+                        授权号
+                    </th>
+                    <th>
+                        交易金额
+                    </th>
+                    <th>
+                        银行手续费
+                    </th>
+                    <th>
+                        划账金额
+                    </th>
+                    <th>
+                        凭证号
+                    </th>
+                    <th>
+                        批次号
+                    </th>
+                    <th>
+                        结算账号
+                    </th>
+                    <th>
+                        持卡人姓名
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="info" th:each="buydetail : ${page.records}">
+                    <td th:text="${buydetail.endId}">
+                        4
+                    </td>
+                    <td th:text="${buydetail.bankAdress}">
+                        TB - Monthly
+                    </td>
+                    <td th:text="${buydetail.cartType}">
+                        04/04/2012
+                    </td>
+                    <td th:text="${buydetail.cartAcct}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.tradeDay}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.tradeTime}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.payType}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.authAcct}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.payAcct}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.handleMoney}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.paymentMoney}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.tradeNum}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.batchNum}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.saleAcct}">
+                        Call in to confirm
+                    </td>
+                    <td th:text="${buydetail.cartName}">
+                        Call in to confirm
+                    </td>
+                    <td>
+                        <a th:href="@{'/remove/'+${page.current}+'/'+${dayname}+'/'+${keyword}+'/'+${buydetail.id}}" class="btn btn-danger btn-xs"><i class=" glyphicon glyphicon-remove"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+
+
+            </table>
+            <div id="Pagination" class="pagination" ><!-- 这里显示分页 --></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+    $(function(){
+        //这是一个非常简单的demo实例，让列表元素分页显示
+        //回调函数的作用是显示对应分页的列表项内容
+        //回调函数在用户每次点击分页链接的时候执行
+        //参数page_index{int整型}表示当前的索引页
+        var initPagination = function() {
+            var num_entries = $("#hiddenresult div.result").length;
+
+            var total = $("#total").val();
+
+            var curentpage = $("#current").val() - 1;
+            // 创建分页
+            $("#Pagination").pagination(total, {
+                num_edge_entries: 1, //边缘页数
+                num_display_entries: 4, //主体页数
+                callback: pageselectCallback,
+                items_per_page:1, //每页显示1项
+                current_page:curentpage,
+                prev_text: "上一页",									// 上一页按钮上显示的文本
+                next_text: "下一页"
+
+            });
+        }();
+
+        function pageselectCallback(page_index, jq){
+            var keyword = $("#keyword").val();
+            var dayname = $("#dayname").val();
+            page_index++;
+            window.location.href = "show/data?pageNum="+page_index+"&keyword="+keyword+"&name="+dayname;
+            return false;
+        }
+    });
+</script>
+</html>
