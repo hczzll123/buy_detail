@@ -4,6 +4,7 @@ package com.hcz.buy_detail.controller;
 
 import com.hcz.buy_detail.config.RetVal;
 import com.hcz.buy_detail.entity.TAdmin;
+import com.hcz.buy_detail.redis.RedisUtil;
 import com.hcz.buy_detail.service.TAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,18 @@ public class TAdminController {
 
     @Autowired
     TAdminService tAdminService;
+
+    @Autowired
+    RedisUtil redisUtil;
+
+    @RequestMapping("/welcome")
+    public String welcome(){
+
+//        redisUtil.set("myName","赵啦啦");
+        String myName = (String) redisUtil.get("myName");
+        System.out.println(myName);
+        return "welcome";
+    }
 
     @RequestMapping("add")
     @ResponseBody
