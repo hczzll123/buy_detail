@@ -7,6 +7,7 @@ import com.hcz.buy_detail.entity.TAdmin;
 import com.hcz.buy_detail.redis.RedisUtil;
 import com.hcz.buy_detail.service.TAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,13 +35,11 @@ public class TAdminController {
     @Autowired
     RedisUtil redisUtil;
 
-    @RequestMapping("/welcome")
-    public String welcome(){
+    @GetMapping("/welcome")
+    public RetVal welcome(){
 
-//        redisUtil.set("myName","赵啦啦");
         String myName = (String) redisUtil.get("myName");
-        System.out.println(myName);
-        return "welcome";
+        return RetVal.successWithData("查询成功",myName);
     }
 
     @RequestMapping("add")
