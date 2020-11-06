@@ -14,3 +14,4 @@ target/generated-test-sources/
 target/classes
 target/test-classes
 
+/.idea/workspace.xml
