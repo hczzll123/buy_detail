@@ -8,6 +8,8 @@ import com.hcz.buy_detail.entity.Daystatus;
 import com.hcz.buy_detail.service.BuydetailsService;
 import com.hcz.buy_detail.service.DaystatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,6 +44,25 @@ public class DataShowController {
         return "buydetail";
 
     }
+
+
+    @RequestMapping("/testmsg")
+    @ResponseBody
+    public String testmsg(ModelMap map){
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("name","hcz");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return json.toString();
+
+    }
+
+
+
 
     //该方法用于展示每日的状态
     @RequestMapping("/showStatu")
