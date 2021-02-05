@@ -53,6 +53,7 @@ public class DataShowController {
         JSONObject json = new JSONObject();
         try {
             json.put("name","hcz");
+            json.put("age","25");
         } catch (JSONException e) {
             e.printStackTrace();
         }
