@@ -8,6 +8,7 @@ import com.hcz.buy_detail.entity.Daystatus;
 import com.hcz.buy_detail.service.BuydetailsService;
 import com.hcz.buy_detail.service.DaystatusService;
 import com.hcz.buy_detail.utils.CookieUtil;
+import com.hcz.buy_detail.utils.JwtTokenUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
@@ -31,6 +32,9 @@ public class DataShowController extends BaseController{
 
     @Autowired
     DaystatusService daystatusService;
+
+    @Autowired
+    JwtTokenUtil jwtTokenUtil;
 
 
     @Autowired
@@ -87,6 +91,18 @@ public class DataShowController extends BaseController{
 
         return name;
 
+    }
+
+    @RequestMapping("/tesjwt")
+    @ResponseBody
+    public String tesjwt(ModelMap map){
+
+        String name = "hzc";
+
+        String token = jwtTokenUtil.generateToken(name);
+
+        System.out.println(token);
+        return name;
     }
 
 
