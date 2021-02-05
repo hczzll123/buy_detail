@@ -7,6 +7,8 @@ import com.hcz.buy_detail.entity.Buydetails;
 import com.hcz.buy_detail.entity.Daystatus;
 import com.hcz.buy_detail.service.BuydetailsService;
 import com.hcz.buy_detail.service.DaystatusService;
+import com.hcz.buy_detail.utils.CookieUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -24,7 +27,7 @@ import java.util.List;
  * @createdate 2020/6/11 - 16:15
  */
 @Controller
-public class DataShowController {
+public class DataShowController extends BaseController{
 
     @Autowired
     DaystatusService daystatusService;
@@ -58,10 +61,33 @@ public class DataShowController {
             e.printStackTrace();
         }
 
+        HttpServletRequest request = getRequest();
+
+        CookieUtil.setCookie(request,getResponse(),"name","hcz");
+
         return json.toString();
 
     }
 
+
+    @RequestMapping("/testName")
+    @ResponseBody
+    public String testsg(ModelMap map){
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("success","true");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        HttpServletRequest request = getRequest();
+
+        String name = CookieUtil.getCookieValue(request, "name");
+
+        return name;
+
+    }
 
 
 
