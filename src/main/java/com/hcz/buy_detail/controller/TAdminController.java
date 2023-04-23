@@ -3,16 +3,11 @@ package com.hcz.buy_detail.controller;
 
 
 import com.hcz.buy_detail.config.RetVal;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -27,28 +22,117 @@ import java.util.Map;
 public class TAdminController {
 
 
-    @GetMapping("/welcome")
-    public RetVal welcome(){
+    @GetMapping("/welcome1")
+    public RetVal welcome1(){
 
-//        String myName = (String) redisUtil.get("myName");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return RetVal.successWithData("查询成功",null);
     }
 
-    @RequestMapping("add")
-    @ResponseBody
-    public RetVal addAdmin(){
+    @GetMapping("/welcome2")
+    public RetVal welcome2(){
 
-//        List<TAdmin> list = tAdminService.list(null);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
 
-//        for (TAdmin tAdmin1 : list) {
-//            String createTime = tAdmin1.getCreateTime();
-//            System.out.println(createTime);
-//        }
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("name","hcz");
-//        map.put("list",list);
+    @GetMapping("/welcome3")
+    public RetVal welcome3(){
 
-        return RetVal.successWithData("成功",null);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+
+    @GetMapping("/welcome4")
+    public RetVal welcome4(){
+
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+
+    @GetMapping("/welcome5")
+    public RetVal welcome5(){
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+    @GetMapping("/welcome6")
+    public RetVal welcome6(){
+
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+    @GetMapping("/welcome7")
+    public RetVal welcome7(){
+
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+    @GetMapping("/welcome8")
+    public RetVal welcome8(){
+
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+    @GetMapping("/welcome9")
+    public RetVal welcome9(){
+
+        try {
+            Thread.sleep(9000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
+    }
+
+
+    @GetMapping("/welcome10")
+    public RetVal welcome10(){
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return RetVal.successWithData("查询成功",null);
     }
 
 
