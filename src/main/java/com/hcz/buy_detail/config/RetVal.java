@@ -1,14 +1,11 @@
 package com.hcz.buy_detail.config;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
 
 @Data
 public class RetVal {
-    @ApiModelProperty(value = "成功或者失败")
+
     private Boolean success;
     //状态码
     private Integer code;
