@@ -2,7 +2,7 @@ package com.hcz.buy_detail.config;
 
 /**
  * @author Dragon-king
- * @createdate 2020/3/12 - 18:38
+ * @createdate 2023-05-04
  */
 //定义操作状态码
 public interface RetCode {

@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- *  前端控制器
+ *  压测接口
  * </p>
  *
  * @author hechangzheng
- * @since 2020-11-06
+ * @since 2023-05-04
  */
 @RestController
 @RequestMapping("/t-admin")
