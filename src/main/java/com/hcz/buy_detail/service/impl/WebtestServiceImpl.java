@@ -15,15 +15,11 @@ public class WebtestServiceImpl implements WebtestService {
 
     @Override
     public String webserviceSimple(String username, Integer age) {
-        System.out.println(username);
-        System.out.println(age);
         return "Simple";
     }
 
     @Override
     public String webservice100(String username, Integer age) {
-        System.out.println(username);
-        System.out.println(age);
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
@@ -34,8 +30,6 @@ public class WebtestServiceImpl implements WebtestService {
 
     @Override
     public String webservice1000(String username, Integer age) {
-        System.out.println(username);
-        System.out.println(age);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -46,8 +40,6 @@ public class WebtestServiceImpl implements WebtestService {
 
     @Override
     public String webservice30000(String username, Integer age) {
-        System.out.println(username);
-        System.out.println(age);
         try {
             Thread.sleep(30000);
         } catch (InterruptedException e) {
