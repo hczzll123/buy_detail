@@ -22,8 +22,8 @@ public class TAdminController {
      * httpSimple
      * @return
      */
-    @GetMapping("/httpSimple")
-    public RetVal httpSimple(){
+    @PostMapping("/httpSimple")
+    public RetVal httpSimple(@RequestBody String src){
         return RetVal.successWithData("响应成功",null);
     }
 
@@ -33,8 +33,8 @@ public class TAdminController {
      * 耗时100ms
      * @return
      */
-    @GetMapping("/http100")
-    public RetVal http100(){
+    @PostMapping("/http100")
+    public RetVal http100(@RequestBody String src){
 
         try {
             Thread.sleep(100);
@@ -48,8 +48,8 @@ public class TAdminController {
      * 耗时1s
      * @return
      */
-    @GetMapping("/http1000")
-    public RetVal http1000(){
+    @PostMapping("/http1000")
+    public RetVal http1000(@RequestBody String src){
 
         try {
             Thread.sleep(1000);
@@ -63,8 +63,8 @@ public class TAdminController {
      * 耗时30s
      * @return
      */
-    @GetMapping("/http30000")
-    public RetVal http30000(){
+    @PostMapping("/http30000")
+    public RetVal http30000(@RequestBody String src){
 
         try {
             Thread.sleep(30000);

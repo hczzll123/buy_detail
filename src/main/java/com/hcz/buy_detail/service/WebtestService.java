@@ -12,27 +12,23 @@ public interface WebtestService {
 
     @WebMethod
     @WebResult(name = "String", targetNamespace = "")
-    String webserviceSimple(@WebParam(name = "username",targetNamespace = "http://service.buy_detail.hcz.com") String username,
-                          @WebParam(name = "age",targetNamespace = "http://service.buy_detail.hcz.com") Integer age
+    String webserviceSimple(@WebParam(name = "body",targetNamespace = "http://service.buy_detail.hcz.com") String body
     );
 
     @WebMethod
     @WebResult(name = "String", targetNamespace = "")
-    String webservice100(@WebParam(name = "username",targetNamespace = "http://service.buy_detail.hcz.com") String username,
-                      @WebParam(name = "age",targetNamespace = "http://service.buy_detail.hcz.com") Integer age
+    String webservice100(@WebParam(name = "body",targetNamespace = "http://service.buy_detail.hcz.com") String body
     );
 
     @WebMethod
     @WebResult(name = "String", targetNamespace = "")
-    String webservice1000(@WebParam(name = "username",targetNamespace = "http://service.buy_detail.hcz.com") String username,
-                         @WebParam(name = "age",targetNamespace = "http://service.buy_detail.hcz.com") Integer age
+    String webservice1000(@WebParam(name = "body",targetNamespace = "http://service.buy_detail.hcz.com") String body
     );
 
 
     @WebMethod
     @WebResult(name = "String", targetNamespace = "")
-    String webservice30000(@WebParam(name = "username",targetNamespace = "http://service.buy_detail.hcz.com") String username,
-                          @WebParam(name = "age",targetNamespace = "http://service.buy_detail.hcz.com") Integer age
+    String webservice30000(@WebParam(name = "body",targetNamespace = "http://service.buy_detail.hcz.com") String body
     );
 
 
