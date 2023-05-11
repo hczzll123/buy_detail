@@ -24,7 +24,7 @@ public class TAdminController {
      */
     @PostMapping("/httpSimple")
     public RetVal httpSimple(@RequestBody String src){
-        return RetVal.successWithData("响应成功",null);
+        return RetVal.successWithData("success",null);
     }
 
 
@@ -35,13 +35,12 @@ public class TAdminController {
      */
     @PostMapping("/http100")
     public RetVal http100(@RequestBody String src){
-
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return RetVal.successWithData("响应成功",null);
+        return RetVal.successWithData("success-100",null);
     }
 
     /**
@@ -56,7 +55,7 @@ public class TAdminController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return RetVal.successWithData("响应成功",null);
+        return RetVal.successWithData("success-1000",null);
     }
 
     /**
@@ -71,7 +70,7 @@ public class TAdminController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return RetVal.successWithData("响应成功",null);
+        return RetVal.successWithData("success-30000",null);
     }
 
 
@@ -87,7 +86,7 @@ public class TAdminController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return RetVal.successWithData("响应成功",null);
+        return RetVal.successWithData("success-BodySize",null);
     }
 
 
